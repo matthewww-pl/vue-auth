@@ -1,30 +1,44 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div>
+    <header>
+      <Header />
+    </header>
+    <main>
+      <div class="container">
+        <router-view/>
+      </div>
+    </main>
+    <footer>
+      <Footer />
+    </footer>
   </div>
-  <router-view/>
 </template>
 
+<script>
+import Header from '@/views/layout/header.vue'
+import Footer from '@/views/layout/footer.vue'
+export default {
+  components: {
+    Header,
+    Footer
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html {
+  position: relative;
+  min-height: 100%;
 }
-
-#nav {
-  padding: 30px;
+body {
+  margin-bottom: 60px; /* Margin bottom by footer height */
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
 }
 </style>
